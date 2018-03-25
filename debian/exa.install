@@ -1,0 +1,5 @@
+target/release/exa usr/bin
+
+README.md          usr/share/doc/exa
+
+LICENCE            usr/share/licenses/exa

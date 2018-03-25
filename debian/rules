@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+%:
+	dh $@
+
+override_dh_clean:
+	dh_clean
+	mkdir debian/exa
+	mkdir debian/exa/usr
+	mkdir debian/exa/usr/local
+	mkdir debian/exa/usr/local/bin/
+	rm -rf vendor target
+
+override_dh_auto_build:
+	mkdir -p .cargo
+	sed 's@$$PWD@$(CURDIR)@' debian/cargo.config > .cargo/config
+	tar xzf debian/vendor.tar.gz
+	cargo build --release --frozen --verbose
