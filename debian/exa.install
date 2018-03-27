@@ -1,5 +1,12 @@
 target/release/exa usr/bin
 
+contrib/man/exa.1  usr/share/man/man1
 README.md          usr/share/doc/exa
 
 LICENCE            usr/share/licenses/exa
+
+contrib/man/exa.1  usr/share/man/man1
+
+contrib/exa              etc/bash_completion.d
+contrib/_exa             usr/share/zsh/vendor-completions
+contrib/exa.fish         usr/share/fish/vendor_completions.d

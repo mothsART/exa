@@ -16,5 +16,4 @@ Vcs-Git: https://github.com/ogham/exa.git
 Package: exa
 Architecture: any
 Pre-Depends: dpkg (>= 1.17.14)
-Depends: ${shlib:Depends}
 Description: exa is a replacement for ls written in Rust.

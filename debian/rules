@@ -6,14 +6,13 @@
 
 override_dh_clean:
 	dh_clean
-	mkdir debian/exa
-	mkdir debian/exa/usr
-	mkdir debian/exa/usr/local
-	mkdir debian/exa/usr/local/bin/
-	rm -rf vendor target
+	rm -rf vendor target contrib/exa contrib/_exa contrib/exa.fish
 
 override_dh_auto_build:
 	mkdir -p .cargo
 	sed 's@$$PWD@$(CURDIR)@' debian/cargo.config > .cargo/config
 	tar xzf debian/vendor.tar.gz
 	cargo build --release --frozen --verbose
+	cp contrib/completions.bash contrib/exa
+	cp contrib/completions.zsh  contrib/_exa
+	cp contrib/completions.fish contrib/exa.fish
